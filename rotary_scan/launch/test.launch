@@ -1,8 +1,0 @@
-<launch>
-	<!-- ladar pkg, see https://github.com/SICKAG/sick_scan -->
-	<param name="scan_over" type="bool" value="true" />
-	<include file="$(find sick_scan)/launch/sick_lms_1xx.launch" >
-		<arg name="hostname" default="169.254.50.49" />
-	</include >
-
-</launch>
