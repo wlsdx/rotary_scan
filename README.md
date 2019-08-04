@@ -1,7 +1,7 @@
 # rotary_scan
 用步进电机带动激光雷达转动，在ROS上控制并得到转动扫描的结果  
 
-![structure](/structure.png)
+![structure](/files/structure.png)
 
 ## 一、如何使用rotary_scan
 ### 软件
@@ -24,6 +24,9 @@
 - 或者运行模拟程序  
 `roslaunch rotary_scan rotary_scan_sim.launch`  
 该模拟程序模拟的是平移扫描，但原理和转动扫描是一致的
+
+右侧是电脑台![result](/files/result.png)
+
 
 如果不能运行，进入rotary_scan的scripts文件夹，用`chmod +x filename.py`命令修改各python脚本的运行权限
 
