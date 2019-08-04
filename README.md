@@ -25,7 +25,7 @@
 `roslaunch rotary_scan rotary_scan_sim.launch`  
 该模拟程序模拟的是平移扫描，但原理和转动扫描是一致的
 
-模拟扫描结果：一侧是电脑台![result](/files/keyboard.png)
+模拟扫描结果：红线是雷达轨迹，右侧是电脑台![result](/files/keyboard.png)
 
 如果不能运行：
 - 检查雷达的IP（可以用ping或者用Windows程序SOPAS），在rotary_scan.launch中修改hostname
