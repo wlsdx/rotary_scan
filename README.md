@@ -32,6 +32,7 @@
 - 检查串口名，在motor.py中修改
 
 ### 硬件
+![mechanical](/files/mechanical.JPG)
 
 1. 电机  
 使用的是MOON's的TSM-23S-3RG步进伺服电机。电机接RS485-RS232转接口，再通过USB连接电脑。使用24V电源供电。  
