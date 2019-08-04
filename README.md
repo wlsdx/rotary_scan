@@ -25,7 +25,7 @@
 `roslaunch rotary_scan rotary_scan_sim.launch`  
 该模拟程序模拟的是平移扫描，但原理和转动扫描是一致的
 
-右侧是电脑台![result](/files/result.png)
+右侧是电脑台![result](/files/keyboard.png)
 
 
 如果不能运行，进入rotary_scan的scripts文件夹，用`chmod +x filename.py`命令修改各python脚本的运行权限
