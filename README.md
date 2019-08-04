@@ -74,7 +74,7 @@
 结果可视化
 
 ## 三、主要节点
-### motor  
+- ### motor  
 串口通信，并且读取编码器位置，根据位置计算并发布tf  
 终止扫描目前采用判据的是IE>20000，即转过一圈  
 详细内容在源码中有注释
@@ -86,6 +86,6 @@
 tf树：fixed_frame是'base_link'，雷达的link名是'laser'  
 tf信息和实际位姿的关系请查万能的ROS wiki和文档
 
-### assemble_requset
+- ### assemble_requset
 向laser_assembler请求服务并发布结果的点云  
 详细内容在源码中有注释
