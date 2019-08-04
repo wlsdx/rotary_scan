@@ -7,8 +7,7 @@
 ### 软件
 
 1. 安装[ROS kinetic](https://wiki.ros.org/kinetic/Installation) （操作系统建议使用和开发时一致的Ubuntu 16.04）
-2. 将rotary_scan文件夹复制到catkin工作空间的src文件夹，编译，例：  
-#注意git链接(试一下要不要编译，要不要说明依赖)
+2. 将rotary_scan文件夹复制到catkin工作空间的src文件夹，编译，修改脚本运行权限，例：  
 	```
 	mkdir -p catkin_ws/src
 	git clone https://github.com/wlsdx/rotary_scan/rotary_scan.git
@@ -26,7 +25,7 @@
 `roslaunch rotary_scan rotary_scan_sim.launch`  
 该模拟程序模拟的是平移扫描，但原理和转动扫描是一致的
 
-右侧是电脑台![result](/files/keyboard.png)
+模拟扫描结果：一侧是电脑台![result](/files/keyboard.png)
 
 如果不能运行：
 - 检查雷达的IP（可以用ping或者用Windows程序SOPAS），在rotary_scan.launch中修改hostname
@@ -36,7 +35,6 @@
 
 1. 电机  
 使用的是MOON's的TSM-23S-3RG步进伺服电机。电机接RS485-RS232转接口，再通过USB连接电脑。使用24V电源供电。  
-#注意串口dev0  
 [鸣志官网Windows软件](https://www.moons.com.cn/support-training/tools/Step_Servo)
 
 2. 激光雷达
