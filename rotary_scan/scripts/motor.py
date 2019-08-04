@@ -38,6 +38,7 @@ if __name__=='__main__':
 				rospy.set_param('/scan_over',True)
 				sio.write('STD\r\n')#Stop motor
 				break
-		
+	except Exception,e:
+		print "Failed %s" % e		
 	finally:
 		sio.write('STD\r\n')
