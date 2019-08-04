@@ -11,9 +11,9 @@
 #注意git链接(试一下要不要编译，要不要说明依赖)
 	```
 	mkdir -p catkin_ws/src
-	cd catkin_ws/src
 	git clone https://github.com/wlsdx/rotary_scan/rotary_scan.git
-	cd ..
+	mv rotary_scan/rotary_scan catkin_ws/src/rotary_scan
+	cd catkin_ws
 	catkin_make
 	```
 3. 下载安装[sick_scan](https://github.com/SICKAG/sick_scan)包
