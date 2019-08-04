@@ -11,9 +11,9 @@ if __name__=='__main__':
 	print 'Starting'
 	sio=serial.Serial("/dev/ttyUSB0",9600,8,timeout=5)
 	sio.write('1IE\r\n')
-	IE0=int(sio.readline()[4:13],16)#Position, string format: '1IE=xxxxxxxx{4D' in hex
+	IE0=int(sio.readline()[4:13],16)#Position of Encoder, result string format: '1IE=xxxxxxxx{4D' in hex
 	coef=2*math.pi/20000
-#tf
+
 	m=tf.TransformBroadcaster()
 	t=geometry_msgs.msg.TransformStamped()
 	t.header.frame_id='base_link'#The reference frame in this tf msg
@@ -21,7 +21,7 @@ if __name__=='__main__':
 	
 	rate=rospy.Rate(50)#f=50Hz
 	
-	sio.write("STD\r\nDL1\r\nDI1\r\nAC46.426\r\nDE46.426\r\nVE0.0756\r\nSH1L\r\n")#Movement Start
+	sio.write("STD\r\nDL1\r\nDI1\r\nAC46.426\r\nDE46.426\r\nVE0.0756\r\nSH1L\r\n")#Movement Start, check SCL manual
 	try:
 		while not rospy.is_shutdown():
 			t.header.stamp=rospy.get_rostime()
