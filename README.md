@@ -15,10 +15,11 @@
 	mv rotary_scan/rotary_scan catkin_ws/src/rotary_scan
 	cd catkin_ws
 	catkin_make
+	chmod +x src/rotary_scan/scripts -R
 	```
 3. 下载安装[sick_scan](https://github.com/SICKAG/sick_scan)包
 4. 配置环境变量  
-`source devel/setup.bash`  
+`source catkin_ws/devel/setup.bash`  
 - 连接好硬件后运行  
 `roslaunch rotary_scan rotary_scan.launch`  
 - 或者运行模拟程序  
@@ -30,7 +31,6 @@
 如果不能运行：
 - 检查雷达的IP（可以用ping或者用Windows程序SOPAS），在rotary_scan.launch中修改hostname
 - 检查串口名，在motor.py中修改
-- 检查scripts文件夹的文件是否有运行权限，没有则用`chmod +x filename.py`命令修改各python脚本的运行权限
 
 ### 硬件
 
