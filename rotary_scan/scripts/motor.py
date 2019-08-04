@@ -10,7 +10,8 @@ if __name__=='__main__':
 	rospy.init_node("py_serial_and_tf_broadcaster")
 	print 'Starting'
 	sio=serial.Serial("/dev/ttyUSB0",9600,8,timeout=5)
-	IE0=int(sio.read()[4:13],16)#Position, string format: '1IE=xxxxxxxx{4D' in hex
+	sio.write('1IE\r\n')
+	IE0=int(sio.readline()[4:13],16)#Position, string format: '1IE=xxxxxxxx{4D' in hex
 	coef=2*math.pi/20000
 #tf
 	m=tf.TransformBroadcaster()
@@ -24,7 +25,8 @@ if __name__=='__main__':
 	try:
 		while not rospy.is_shutdown():
 			t.header.stamp=rospy.get_rostime()
-			IE=int(sio.read()[4:13],16)-IE0
+			sio.write('1IE\r\n')
+			IE=int(sio.readline()[4:13],16)-IE0
 			theta=IE*coef
 			#rotate only around y axis
 			t.transform.rotation.w=math.cos(theta)
