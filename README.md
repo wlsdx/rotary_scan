@@ -32,7 +32,7 @@
 网络设置
 
 ## 二、rotary_scan的结构
-![structure](/structure.jpg)
+![structure](/structure.png)
 可以在运行程序时使用rqt_graph、rosnode、rostopic等工具了解程序的结构，具体用法查阅[ROS wiki](wiki.ros.org)  
 
 以下从launch文件入手解释所运行的节点，各节点具体情况在子文件夹内说明
