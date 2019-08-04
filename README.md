@@ -27,8 +27,10 @@
 
 右侧是电脑台![result](/files/keyboard.png)
 
-
-如果不能运行，进入rotary_scan的scripts文件夹，用`chmod +x filename.py`命令修改各python脚本的运行权限
+如果不能运行：
+- 检查雷达的IP（可以用ping或者用Windows程序SOPAS），在rotary_scan.launch中修改hostname
+- 检查串口名，在motor.py中修改
+- 检查scripts文件夹的文件是否有运行权限，没有则用`chmod +x filename.py`命令修改各python脚本的运行权限
 
 ### 硬件
 
@@ -42,7 +44,7 @@
 [SICK官网Windows软件SOPAS](https://www.sick.com/cn/zh/search?text=SOPAS)
 
 ## 二、rotary_scan的结构
-![rqt_graph](rqt_graph.png)  
+![node_graph](/files/node_graph.png)  
 可以在运行程序时使用rqt_graph、rosnode、rostopic等工具了解程序的结构，具体用法查阅[ROS wiki](wiki.ros.org)  
 
 以下从launch文件入手解释所运行的节点，各节点具体情况在子文件夹内说明
