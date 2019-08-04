@@ -1,0 +1,25 @@
+<launch>
+	<arg name="fixed_frame" default="base_link" />
+
+	<!-- ladar pkg, see https://github.com/SICKAG/sick_scan -->
+	<!-- include file="$(find sick_scan)/launch/sick_lms_1xx.launch" >
+		<arg name="hostname" default="169.254.50.49" />
+	</include -->
+
+	<param name="use_sim_time" type="bool" value="true" />
+	<!-- Desktop/2019-07-12-10-44-06.bag -->
+	<node pkg="rosbag" type="play" name="bag_cloud" args="-k $(find rotary_scan)/bag/translation_keyboard.bag --clock --topic /cloud" />
+
+	<!-- Control motor and Read position -->
+	<node name="motor" pkg="rotary_scan" type="motor_sim.py" />
+	<!-- ROS original package providing service of assembling cloud and tf -->
+
+	<node name="cloud_assembler_server" pkg="laser_assembler" type="point_cloud2_assembler">
+		<param name="fixed_frame" type="string" value="$(arg fixed_frame)" />
+	</node>
+
+	<!-- Request service and Publish result -->
+	<node name="cloud_assembler_request" pkg="rotary_scan" type="assemble_request_sim.py" />
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find rotary_scan)/rviz/cloud_assembler.rviz" />
+</launch>
