@@ -34,6 +34,10 @@ if __name__=='__main__':
 			m.sendTransformMessage(t)
 			print 'Sending'
 			rate.sleep()
+			if IE>20000:
+				rospy.set_param('/scan_over',True)
+				sio.write('STD\r\n')#Stop motor
+				break
 		
 	finally:
-		sio.write('STD\r\n')#Stop motor
+		sio.write('STD\r\n')
