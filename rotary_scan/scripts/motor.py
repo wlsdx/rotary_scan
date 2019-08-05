@@ -11,7 +11,7 @@ if __name__=='__main__':
 	print 'Starting'
 	sio=serial.Serial("/dev/ttyUSB0",9600,8,timeout=5)
 	sio.write('1IE\r\n')
-	IE0=int(sio.readline()[4:13],16)#Position of Encoder, result string format: '1IE=xxxxxxxx{4D' in hex
+	IE0=int(sio.readline()[4:12],16)#Position of Encoder, result string format: '1IE=12345678{4D' in hex
 	coef=2*math.pi/20000
 
 	m=tf.TransformBroadcaster()
@@ -26,7 +26,7 @@ if __name__=='__main__':
 		while not rospy.is_shutdown():
 			t.header.stamp=rospy.get_rostime()
 			sio.write('1IE\r\n')
-			IE=int(sio.readline()[4:13],16)-IE0
+			IE=int(sio.readline()[4:12],16)-IE0
 			theta=IE*coef
 			#rotate only around y axis
 			t.transform.rotation.w=math.cos(theta)
@@ -42,3 +42,5 @@ if __name__=='__main__':
 		print "Failed %s" % e		
 	finally:
 		sio.write('STD\r\n')
+
+	#Further improvement: Check whether readline() clears the buffer, Set timeout for readline(), Consider exception handling for robustness
