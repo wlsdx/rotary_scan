@@ -55,7 +55,7 @@
 - motor  
 电机节点，负责控制电机转动，并通过查询电机的编码器来发布运动信息tf
 - cloud_assembler_server  
-点云合并服务节点，负责订阅雷达姐节点的点云和电机节点的tf，提供合并为点云的服务
+点云合并服务节点，负责订阅雷达节点的点云和电机节点的tf，提供合并为点云的服务
 - cloud_assembler_request  
 点云合并请求节点，负责请求服务，并发布得到的合并结果
 - rviz  
@@ -84,8 +84,8 @@
 电机一转是20000脉冲。`1IE`指令可以得到以脉冲数记录的位置信息，通过计算该位置可以得到电机转动的位置
 
 tf树：fixed_frame是'base_link'，雷达的link名是'laser'  
-tf信息和实际位姿的关系请查万能的ROS wiki和文档
+tf信息和实际位姿的关系请查万能的[ROS wiki](http://wiki.ros.org/tf)和[文档](http://docs.ros.org/api/tf/html/msg/tfMessage.html)
 
 - ### assemble_requset
-向laser_assembler请求服务并发布结果的点云  
+向[laser_assembler](http://wiki.ros.org/laser_assembler)请求服务并发布结果的点云  
 详细内容在源码中有注释
