@@ -51,7 +51,7 @@
 ### rotary_scan.launch
 - sick_scan  
 引用了雷达的launch文件，该launch中运行的是`sick_lms_1xx`节点，负责读取雷达数据并发布PointCloud2格式的点云  
-可以在sick_scan文件夹查看具体运行的代码，其中的[launch](https://github.com/SICKAG/sick_scan/launch/sick_lms_1xx.launch)文件中列举了可设置的雷达参数
+可以在sick_scan文件夹查看具体运行的代码，其中的[launch](https://github.com/SICKAG/sick_scan/blob/master/launch/sick_lms_1xx.launch)文件中列举了可设置的雷达参数
 - motor  
 电机节点，负责控制电机转动，并通过查询电机的编码器来发布运动信息tf
 - cloud_assembler_server  
