@@ -51,7 +51,7 @@
 ### rotary_scan.launch
 - sick_scan  
 引用了雷达的launch文件，该launch中运行的是`sick_lms_1xx`节点，负责读取雷达数据并发布PointCloud2格式的点云  
-可以在sick_scan文件夹查看具体运行的代码，其中的[launch](https://github.com/SICKAG/sick_scan/blob/master/launch/sick_lms_1xx.launch)文件中列举了可设置的雷达参数
+可以在sick_scan文件夹查看具体运行的代码，其中的[launch](https://github.com/SICKAG/sick_scan/blob/master/launch/sick_lms_1xx.launch)文件中列举了可设置的雷达参数。可用`roscd sick_scan/launch`进入其目录
 - motor  
 电机节点，负责控制电机转动，并通过查询电机的编码器来发布运动信息tf
 - cloud_assembler_server  
@@ -77,7 +77,7 @@
 - ### motor  
 串口通信，并且读取编码器位置，根据位置计算并发布tf  
 终止扫描目前采用判据的是IE>20000，即转过一圈  
-详细内容在源码中有注释
+详细内容见代码注释
 
 电机控制指令是SCL，详见[文档](/files/Host-Command-Reference_920-0002P.PDF)  
 串口通信格式：波特率9600，数据位8，校验位无，注意串口，换行符\r\n(CRLF)，默认串口是/dev/ttyUSB0  
@@ -88,4 +88,4 @@ tf信息和实际位姿的关系请查万能的[ROS wiki](http://wiki.ros.org/tf
 
 - ### assemble_requset
 向[laser_assembler](http://wiki.ros.org/laser_assembler)请求服务并发布结果的点云  
-详细内容在源码中有注释
+详细内容见源码注释
