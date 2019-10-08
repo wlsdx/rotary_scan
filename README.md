@@ -89,3 +89,5 @@ tf信息和实际位姿的关系请查万能的[ROS wiki](http://wiki.ros.org/tf
 - ### assemble_requset
 向[laser_assembler](http://wiki.ros.org/laser_assembler)请求服务并发布结果的点云  
 详细内容见源码注释
+
+[补充ROS教程](https://sychaichangkun.gitbooks.io/ros-tutorial-icourse163/content/)
